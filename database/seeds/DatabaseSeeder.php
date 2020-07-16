@@ -11,6 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UserSeeder::class);
+      DB::table('messages')->insert([
+    'number' => Integer::random(11),
+    'message' => Str::random(140)
+]);
     }
 }

@@ -11,7 +11,6 @@ class SmsController extends Controller
 {
   public function sendSms( Request $request )
       {
-         // Your Account SID and Auth Token from twilio.com/console
          $sid    = env( 'TWILIO_SID' );
          $token  = env( 'TWILIO_TOKEN' );
          $client = new Client( $sid, $token );
@@ -41,10 +40,12 @@ class SmsController extends Controller
                  );
              }
 
-             return back()->with( 'success', $count . " messages sent!" );
+             // return back()->with( 'success', $count . " messages sent!" );
+             return $request->all();
 
          } else {
              return back()->withErrors( $validator );
          }
      }
+
 }
