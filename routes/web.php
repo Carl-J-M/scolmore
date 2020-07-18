@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('create');
 });
 
-Route::view('/sms', 'sms');
+
 Route::post('/create', 'SmsController@store');
-Route::post('/sms', 'SmsController@sendSms');
+Route::resource('messages', 'SmsController');

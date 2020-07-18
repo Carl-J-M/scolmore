@@ -1,24 +1,11 @@
 <html>
       <body>
-         <form action='' method='post' action="create">
+         <form method="post" action="{{route('sms.store')}}">
               @csrf
-                      @if($errors->any())
-              <ul>
-             @foreach($errors->all() as $error)
-            <li> {{ $error }} </li>
-             @endforeach
-        @endif
-
-        @if( session( 'success' ) )
-             {{ session( 'success' ) }}
-        @endif
-
              <label>Phone number:</label>
-             <input type='number' name='numbers' maxlength="11"/>
-
+             <input type='tel' name='number' maxlength="11"/>
             <label>Message</label>
             <textarea name='message' maxlength="140"></textarea>
-
             <button type='submit'>Send!</button>
       </form>
     </body>

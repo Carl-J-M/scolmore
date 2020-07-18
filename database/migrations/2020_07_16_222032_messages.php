@@ -6,16 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 class Messages extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+    // /**
+    //  * Run the migrations.
+    //  *
+    //  * @return void
+    //  */
     public function up()
     {
       Schema::create('messages', function (Blueprint $table) {
           $table->increments('id');
-          $table->integer('name');
+          $table->integer('number');
           $table->string('message');
           $table->timestamps();
       });
