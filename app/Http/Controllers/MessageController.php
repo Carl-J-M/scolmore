@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Twilio\Rest\Client;
 use Validator;
-use App\Sms;
+use App\Message;
 
 
-class SmsController extends Controller
+class MessageController extends Controller
 {
     public function create()
   {
@@ -16,7 +16,7 @@ class SmsController extends Controller
   }
     public function index()
   {
-      $messages = Sms::all();
+      $messages = Message::all();
       return view('index', compact('messages'));
   }
     public function store(Request $request)
@@ -25,7 +25,7 @@ class SmsController extends Controller
       'number' => 'required|numeric',
       'message' => 'required|max:140'
       ]);
-      $sms = Sms::create($storeData);
+      $sms = Message::create($storeData);
       return $this->sendSms($request);
   }
    public function sendSms(Request $request)

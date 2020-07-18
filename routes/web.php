@@ -18,5 +18,5 @@ Route::get('/', function () {
 });
 
 
-Route::post('/create', 'SmsController@store');
-Route::resource('messages', 'SmsController');
+Route::post('/create', 'MessageController@store');
+Route::resource('messages', 'MessageController');
