@@ -14,6 +14,16 @@ class MessageController extends Controller
   {
       return view('create');
   }
+    public function destroy()
+  {
+    //destroy outside of scope of brief
+      return view('create');
+  }
+    public function update()
+  {
+    //update outside of scope of brief
+      return view('create');
+  }
     public function index()
   {
       $messages = Message::all();
@@ -26,7 +36,8 @@ class MessageController extends Controller
       'message' => 'required|max:140'
       ]);
       $sms = Message::create($storeData);
-      return $this->sendSms($request);
+      $this->sendSms($request);
+      return $this->index();
   }
    public function sendSms(Request $request)
       {
@@ -51,11 +62,11 @@ class MessageController extends Controller
                      [
                          'from' => env( 'TWILIO_FROM' ),
                          'body' => $message,
+                         'statusCallback' => 'https://postb.in/b/1595095228596-5232358800712'
                      ]
                  );
              }
              return back()->with( 'success', $count . " messages sent!" );
-             // return $request->all();
          } else {
              return back()->withErrors( $validator );
          }
