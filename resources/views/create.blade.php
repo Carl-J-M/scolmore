@@ -1,5 +1,4 @@
 @extends('layout')
-
 @section('content')
 <style>
   .push-top {

@@ -21,12 +21,12 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($messages as $messages)
+        @foreach($messages as $sms)
         <tr>
-            <td>0{{$messages->number}}</td>
-            <td>{{$messages->message}}</td>
+            <td>0{{$sms->number}}</td>
+            <td>{{$sms->message}}</td>
             <td class="text-center">
-            <a class="btn btn-secondary btn-sm bg-success text-success">{{$messages->timestamps}}</a>
+            <a class="text-success">{{$sms->timestamps}}</a>
             </td>
         </tr>
         @endforeach

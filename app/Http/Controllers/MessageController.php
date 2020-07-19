@@ -14,16 +14,6 @@ class MessageController extends Controller
   {
       return view('create');
   }
-    public function destroy()
-  {
-    //destroy outside of scope of brief
-      return view('create');
-  }
-    public function update()
-  {
-    //update outside of scope of brief
-      return view('create');
-  }
     public function index()
   {
       $messages = Message::all();
@@ -49,7 +39,6 @@ class MessageController extends Controller
         'number' => 'required',
         'message' => 'required'
       ]);
-
       if ( $validator->passes() ) {
              $numbers_in_arrays = explode( ',' , $request->input( 'number' ) );
              $message = $request->input( 'message' );
@@ -62,7 +51,7 @@ class MessageController extends Controller
                      [
                          'from' => env( 'TWILIO_FROM' ),
                          'body' => $message,
-                         'statusCallback' => 'https://postb.in/b/1595095228596-5232358800712'
+                         'statusCallback' => 'https://127.0.0.1/messages'
                      ]
                  );
              }
